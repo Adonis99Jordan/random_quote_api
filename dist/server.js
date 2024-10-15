@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 const app = express();
 // We need a database of quotes
 const quotes = [
@@ -29,6 +30,8 @@ ie. It sends back an object like the one below:
   quote: 'JavaScript is the tool that turns ideas into reality.'
 }
 */
+// Allow other domains to request to server
+app.use(cors());
 // When a route sends back an array or an object, it is an API route 
 // When a route is an API route, you should prefix the path with a /api
 app.get('/api/quote', (_, responseObj) => {
